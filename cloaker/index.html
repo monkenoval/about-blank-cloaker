@@ -13,7 +13,45 @@
 </head>
 <body>
     <!--Host this to github pages and you'll be good. If you don't know how, find a tutorial. -->
-    <iframe src="https://befitting-tinted-ulna.glitch.me" frameborder="0" width="800" height="600"></iframe>
+    <main>
+        <h1>About:Blank Creator</h1>
+       <div class="console-container">
+           <div class="console">
+             <div class="consolebody">
+               
+               <p class="titanOne">Enter a URL you want to be opened in a about:blank page below:</p>
+               <p class="console-input"><input id="url-target" value="" placeholder="Put Link Here." autocomplete="on" type="text" autofocus=""></p>
+               <p class="titanOne">Please make sure you have the https:// on the URL, it is best to just copy the link from the actual search bar!</p>
+             </div>
+           </div>
+           <div class="button-wrapper">
+            <button id="create" class="console-button buttonRedirect1" role="button"><span class="text">Create Page</span></button>
+           <button id="create" class="console-button button-64" role="button"><span class="text">Create Page</span></button>
+           </div>
+           
+           
+           <script>var url = document.getElementById("url-target");
+             var urlObj = new window.URL(window.location.href);
+             document.getElementById("create").onclick = function () {
+               if (url.value.substring(0, 8) !== "https://" && url.value.substring(0, 7) !== "http://") {
+                 url.value = "https://" + url.value.split("https://").pop();
+               } else if (url.value.substring(0, 7) == "http://") {
+                 url.value = "https://" + url.value.split("http://").pop();
+               }
+               win = window.open();
+               win.document.body.style.margin = "0";
+               win.document.body.style.height = "100vh";
+               var iframe = win.document.createElement("iframe");
+               iframe.style.border = "none";
+               iframe.style.width = "100%";
+               iframe.style.height = "100%";
+               iframe.style.margin = "0";
+               iframe.referrerpolicy = "no-referrer";
+               iframe.allow = "fullscreen";
+               iframe.src = url.value;
+               win.document.body.appendChild(iframe);
+             };</script>   
+             </div></main>
     <a href="https://monkenoval.github.io/about-blank-cloaker">
         <button class="buttonRedirect2" role="button">Proxy</button>
     </a>
